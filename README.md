@@ -9,3 +9,8 @@ This is a CLI application that builds and maintains employee information. This a
 # Deployed links:
 
 https://github.com/rayaalsaedi/Employee-Tracker
+
+# Screenshot:
+Preview of the app:
+
+![Screenshot](assets/demo.gif)
