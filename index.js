@@ -1,7 +1,6 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 require('console.table');
-// Require(‘dotenv’).config(); 
 
 
 
@@ -164,30 +163,21 @@ function addEmployee() {
 //   update employee
 function updateEmployee() {
     connection.query("SELECT employee.last_name, role.title FROM employee JOIN role ON employee.role_id = role.id;", function(err, res) {
-    // console.log(res)
      if (err) throw err
      console.log(res)
     inquirer.prompt([
           {
             name: "id",
             type: "input",
-            // choices: function() {
-            //   var findLastName = [];
-            //   for (var i = 0; i < res.length; i++) {
-            //     findLastName.push(res[i].last_name);
-            //   }
-            //   return findLastName;
-            // },
+            
             message: "What is the id of the employee? ",
           },
           {
             name: "role",
             type: "input",
             message: "What is the role id?",
-            // choices: findRole()
           },
       ]).then(function(answer) {
-        // var roleById = findRole().indexOf(answer.role) + 1
         connection.query("UPDATE employee SET role_id=? WHERE id=?", 
         [
             answer.role,answer.id
